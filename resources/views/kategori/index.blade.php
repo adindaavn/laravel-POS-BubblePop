@@ -5,22 +5,24 @@
 
     <div class="col-lg-4 mb-4 order-0">
         <div class="accordion" id="accordionExample">
-            <div class="card accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
+            <div class="card accordion-item p-1 active">
+                <h2 class="accordion-header" id="headingOne">
                     <button
                         type="button"
-                        class="accordion-button collapsed"
+                        class="accordion-button"
                         data-bs-toggle="collapse"
                         data-bs-target="#accordionAdd"
-                        aria-expanded="false"
+                        aria-expanded="true"
                         aria-controls="accordionAdd">
-                        Tambah Kategori
+                        <h5 class="mb-0 ms-1">
+                            Tambah Kategori
+                        </h5>
                     </button>
                 </h2>
                 <div
                     id="accordionAdd"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="headingTwo"
+                    class="accordion-collapse collapse show"
+                    aria-labelledby="headingOne"
                     data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <form action="{{ route('kategori.store') }}" method="post">
