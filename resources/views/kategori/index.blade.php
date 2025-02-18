@@ -93,6 +93,7 @@
         <div class="modal-content">
             <form id="jenis-form" action="{{ route('kategori.store') }}" method="post">
                 @csrf
+                @method('put')
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalCenterTitle">Edit Kategori</h5>
                     <button
@@ -104,7 +105,6 @@
                 <div class="modal-body">
                     <div class="row">
 
-                        <input type="hidden" name="_method" id="form-method" value="POST">
                         <input type="hidden" name="id" id="id">
 
                         <div class="col mb-3">
@@ -116,6 +116,7 @@
                                 placeholder="Nama"
                                 name="nama" />
                         </div>
+
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -132,21 +133,12 @@
 <script src="{{ asset('assets') }}/plugins/jquery/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('.btn-add').click(function() {
-            $('#modal-title').text('Tambah Kategori');
-            $('#jenis-form').attr('action', "{{ route('kategori.store') }}");
-            $('#form-method').val('POST');
-            $('#nama').val('');
-        });
-
         // Ketika tombol "Edit" ditekan
         $('.btn-edit').click(function() {
             let id = $(this).data('id');
             let nama = $(this).data('nama');
 
-            $('#modal-title').text('Edit Kategori');
             $('#jenis-form').attr('action', '/kategori/' + id);
-            $('#form-method').val('PUT');
             $('#nama').val(nama);
             $('#id').val(id);
         });
