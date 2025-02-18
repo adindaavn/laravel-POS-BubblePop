@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('produk', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_produk', 50)->unique();
-            $table->string('nama_produk', 100);
+            $table->string('kode', 50)->unique();
+            $table->string('nama', 100);
             $table->unsignedBigInteger('kategori_id')->nullable();
-            $table->foreign('kategori_id')->references('id')->on('kategori')->nullOnDelete();
+            $table->foreign('kategori_id')->references('id')->on('kategori')->nullOnDelete()->cascadeOnUpdate();
             $table->double('harga');
-            $table->integer('stok_total');
+            $table->integer('stok')->nullable();
             $table->unsignedBigInteger('vendor_id')->nullable();
-            $table->foreign('vendor_id')->references('id')->on('vendor')->nullOnDelete();
+            $table->foreign('vendor_id')->references('id')->on('vendor')->nullOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

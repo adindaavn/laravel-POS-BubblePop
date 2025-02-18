@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('vendor', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_vendor', 50);
-            $table->string('kontak', 20)->nullable();
+            $table->string('nama', 50);
+            $table->string('email')->unique()->nullable();
+            $table->string('no_hp', 20)->nullable();
             $table->text('alamat')->nullable();
             $table->timestamps();
         });

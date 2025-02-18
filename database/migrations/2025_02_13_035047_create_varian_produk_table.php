@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('varian_produk', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('produk_id')->nullable();
-            $table->foreign('produk_id')->references('id')->on('produk')->nullOnDelete();
-            $table->string('ukuran', 10);
-            $table->string('warna', 50);
-            $table->integer('stok');
+            $table->foreign('produk_id')->references('id')->on('produk')->nullOnDelete()->cascadeOnUpdate();
+            $table->string('ukuran', 10)->nullable();
+            $table->string('warna', 50)->nullable();
+            $table->integer('stok')->nullable();
             $table->timestamps();
         });
     }

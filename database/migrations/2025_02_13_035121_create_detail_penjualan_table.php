@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('detail_penjualan', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('penjualan_id')->nullable();
-            $table->foreign('penjualan_id')->references('id')->on('penjualan')->nullOnDelete();
+            $table->foreign('penjualan_id')->references('id')->on('penjualan')->nullOnDelete()->cascadeOnUpdate();
             $table->unsignedBigInteger('varian_produk_id')->nullable();
-            $table->foreign('varian_produk_id')->references('id')->on('varian_produk')->nullOnDelete();
+            $table->foreign('varian_produk_id')->references('id')->on('varian_produk')->nullOnDelete()->cascadeOnUpdate();
             $table->double('harga_jual');
-            $table->integer('jumlah');
-            $table->double('sub_total');
+            $table->integer('jumlah')->nullable();
+            $table->double('sub_total')->nullable();
             $table->timestamps();
         });
     }

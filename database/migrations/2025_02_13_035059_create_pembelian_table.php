@@ -17,9 +17,9 @@ return new class extends Migration
             $table->date('tanggal_masuk');
             $table->double('total');
             $table->unsignedBigInteger('vendor_id')->nullable();
-            $table->foreign('vendor_id')->references('id')->on('vendor')->nullOnDelete();
+            $table->foreign('vendor_id')->references('id')->on('vendor')->nullOnDelete()->cascadeOnUpdate();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->nullOnDelete();
+            $table->foreign('user_id')->references('id')->on('users')->nullOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
