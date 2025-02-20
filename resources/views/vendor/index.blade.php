@@ -1,5 +1,5 @@
 @extends('layouts.header')
-@section('title', 'Produk')
+@section('title', 'Vendor')
 @section('content')
 <div class="row">
     <div class="mb-4 order-0">
@@ -15,7 +15,7 @@
 
     <div class="col-lg-12 mb-4 order-0">
         <div class="card">
-            <h5 class="card-header pb-0 fw-bold">Data Produk</h5>
+            <h5 class="card-header pb-0 fw-bold">Data Vendor</h5>
             <div class="table-responsive text-nowrap p-3">
                 <table class="table table-striped table-bordered">
                     <thead>
@@ -30,7 +30,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($produk as $data)
+                        @foreach ($vendor as $data)
                         <tr>
                             <td>{{$data->id}}</td>
                             <td>{{$data->kode}}</td>
@@ -51,7 +51,7 @@
                                         data-email="{{$data->email}}">
                                         <span class="badge rounded-pill bg-label-info"><i class="bx bx-edit-alt text-dark"></i></span>
                                     </button>
-                                    <form action="{{ route('produk.destroy', $data->id) }}" method="post">
+                                    <form action="{{ route('vendor.destroy', $data->id) }}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn"><span class="badge rounded-pill bg-label-danger"><i class="bx bx-trash text-danger"></i></span></button>
@@ -71,7 +71,7 @@
 <div class="modal fade" id="modalEdit" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <form id="jenis-form" action="{{ route('produk.store') }}" method="post">
+            <form id="jenis-form" action="{{ route('vendor.store') }}" method="post">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalCenterTitle"></h5>
@@ -140,8 +140,8 @@
     $(document).ready(function() {
 
         $('.btn-add').click(function() {
-            $('.modal-title').text('Tambah Produk');
-            $('#jenis-form').attr('action', "{{ route('produk.store') }}");
+            $('.modal-title').text('Tambah Vendor');
+            $('#jenis-form').attr('action', "{{ route('vendor.store') }}");
             $('#form-method').val('POST');
             $('#nama').val('');
             $('#submit-btn').text('Tambah');
@@ -155,8 +155,8 @@
             let no_hp = $(this).data('no_hp');
             let email = $(this).data('email');
 
-            $('.modal-title').text('Edit Produk');
-            $('#jenis-form').attr('action', `/produk/${id}`);
+            $('.modal-title').text('Edit Vendor');
+            $('#jenis-form').attr('action', `/vendor/${id}`);
             $('#form-method').val('PUT');
             $('#submit-btn').text('Edit');
             $('#id').val(id);

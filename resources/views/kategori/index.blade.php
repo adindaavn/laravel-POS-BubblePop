@@ -14,7 +14,7 @@
                         data-bs-target="#accordionAdd"
                         aria-expanded="true"
                         aria-controls="accordionAdd">
-                        <h5 class="mb-0 ms-1">
+                        <h5 class="mb-0 ms-1 fw-bold">
                             Tambah Kategori
                         </h5>
                     </button>
@@ -46,7 +46,7 @@
 
     <div class="col-lg-12 mb-4 order-0">
         <div class="card">
-            <h5 class="card-header pb-0">Data Kategori</h5>
+            <h5 class="card-header pb-0 fw-bold">Data Kategori</h5>
             <div class="table-responsive text-nowrap p-3">
                 <table class="table table-striped table-bordered">
                     <thead>
