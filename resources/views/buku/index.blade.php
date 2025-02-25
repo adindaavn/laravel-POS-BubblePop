@@ -23,6 +23,7 @@
                             <th class="fw-bold">No</th>
                             <th class="fw-bold">Kode</th>
                             <th class="fw-bold">Judul</th>
+                            <th class="fw-bold">Penulis</th>
                             <th class="fw-bold">Kategori</th>
                             <th class="fw-bold">Harga</th>
                             <th class="fw-bold">Stok</th>
@@ -40,10 +41,22 @@
                             <td>{{$data->kode}}</td>
                             <td>{{$data->judul}}</td>
                             <td>{{$data->penulis}}</td>
-                            <td>{{$data->kategori_id}}</td>
+                            <td>
+                                @foreach ($kategori as $k)
+                                @if ($k->id == $data->kategori_id)
+                                {{ $k->nama }}
+                                @endif
+                                @endforeach
+                            </td>
                             <td>{{$data->harga}}</td>
                             <td>{{$data->stok}}</td>
-                            <td>{{$data->penerbit_id}}</td>
+                            <td>
+                                @foreach ($penerbit as $p)
+                                @if ($p->id == $data->penerbit_id)
+                                {{ $p->nama }}
+                                @endif
+                                @endforeach
+                            </td>
                             <td>{{$data->isbn}}</td>
                             <td>{{$data->tahun_terbit}}</td>
                             <td>{{$data->jml_halaman}}</td>
@@ -122,7 +135,7 @@
                                     placeholder="Penulis"
                                     name="penulis" />
                             </div>
-    
+
                             <div class="col-6 mb-3">
                                 <label for="kategori" class="form-label">Kategori</label>
                                 <select class="form-select" name="kategori_id" id="kategori_id">
