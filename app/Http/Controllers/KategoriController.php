@@ -22,7 +22,7 @@ class KategoriController extends Controller
     {
         $validated = $request->validate(
             [
-                'nama' => 'required|string|max:20'
+                'nama' => 'required|string|max:50'
             ]
         );
         try {
@@ -50,7 +50,7 @@ class KategoriController extends Controller
 
         $validated = $request->validate(
             [
-                'nama' => 'required|string|max:20'
+                'nama' => 'required|string|max:50'
             ]
         );
 

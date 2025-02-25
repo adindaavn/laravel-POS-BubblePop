@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\BukuController;
 use App\Http\Controllers\KategoriController;
-use App\Http\Controllers\ProdukController;
-use App\Http\Controllers\VendorController;
+use App\Http\Controllers\PenerbitController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -14,5 +14,5 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::resource('kategori', KategoriController::class);
-Route::resource('vendor', VendorController::class);
-Route::resource('produk', ProdukController::class);
+Route::resource('penerbit', PenerbitController::class);
+Route::resource('buku', BukuController::class);

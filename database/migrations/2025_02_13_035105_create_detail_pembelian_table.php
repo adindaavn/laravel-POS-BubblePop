@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('detail_pembelian', function (Blueprint $table) {
             $table->id();
+
             $table->unsignedBigInteger('pembelian_id')->nullable();
             $table->foreign('pembelian_id')->references('id')->on('pembelian')->nullOnDelete()->cascadeOnUpdate();
-            $table->unsignedBigInteger('varian_produk_id')->nullable();
-            $table->foreign('varian_produk_id')->references('id')->on('varian_produk')->nullOnDelete()->cascadeOnUpdate();
+
+            $table->unsignedBigInteger('buku_id')->nullable();
+            $table->foreign('buku_id')->references('id')->on('buku')->nullOnDelete()->cascadeOnUpdate();
+            
             $table->double('harga_beli');
             $table->integer('jumlah')->nullable();
             $table->double('sub_total')->nullable();

@@ -16,10 +16,13 @@ return new class extends Migration
             $table->string('no_transaksi')->unique();
             $table->date('tgl_transaksi');
             $table->double('total_bayar');
+
             $table->unsignedBigInteger('member_id')->nullable();
             $table->foreign('member_id')->references('id')->on('member')->nullOnDelete()->cascadeOnUpdate();
+
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->nullOnDelete()->cascadeOnUpdate();
+            
             $table->timestamps();
         });
     }

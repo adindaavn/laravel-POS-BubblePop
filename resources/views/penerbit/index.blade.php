@@ -1,5 +1,5 @@
 @extends('layouts.header')
-@section('title', 'Vendor')
+@section('title', 'Penerbit')
 @section('content')
 <div class="row">
     <div class="mb-4 order-0">
@@ -15,7 +15,7 @@
 
     <div class="col-lg-12 mb-4 order-0">
         <div class="card">
-            <h5 class="card-header pb-0 fw-bold">Data Vendor</h5>
+            <h5 class="card-header pb-0 fw-bold">Data Penerbit</h5>
             <div class="table-responsive text-nowrap p-3">
                 <table class="table table-striped table-bordered">
                     <thead>
@@ -30,12 +30,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($vendor as $data)
+                        @foreach ($penerbit as $data)
                         <tr>
                             <td>{{$data->id}}</td>
                             <td>{{$data->kode}}</td>
                             <td>{{$data->nama}}</td>
-                            <td>{{$data->no_hp}}</td>
+                            <td>{{$data->no_telp}}</td>
                             <td>{{$data->email}}</td>
                             <td>{{$data->alamat}}</td>
                             <td>
@@ -47,11 +47,11 @@
                                         data-id="{{$data->id}}"
                                         data-nama="{{$data->nama}}"
                                         data-alamat="{{$data->alamat}}"
-                                        data-no_hp="{{$data->no_hp}}"
+                                        data-no_telp="{{$data->no_telp}}"
                                         data-email="{{$data->email}}">
                                         <span class="badge rounded-pill bg-label-info"><i class="bx bx-edit-alt text-dark"></i></span>
                                     </button>
-                                    <form action="{{ route('vendor.destroy', $data->id) }}" method="post">
+                                    <form action="{{ route('penerbit.destroy', $data->id) }}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn"><span class="badge rounded-pill bg-label-danger"><i class="bx bx-trash text-danger"></i></span></button>
@@ -71,7 +71,7 @@
 <div class="modal fade" id="modalEdit" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <form id="jenis-form" action="{{ route('vendor.store') }}" method="post">
+            <form id="jenis-form" action="{{ route('penerbit.store') }}" method="post">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalCenterTitle"></h5>
@@ -108,13 +108,13 @@
                         </div>
 
                         <div class="col-12 mb-3">
-                            <label for="no_hp" class="form-label">No. Hp</label>
+                            <label for="no_telp" class="form-label">No. Hp</label>
                             <input
                                 type="text"
-                                id="no_hp"
+                                id="no_telp"
                                 class="form-control"
                                 placeholder="No. Hp"
-                                name="no_hp" />
+                                name="no_telp" />
                         </div>
 
                         <div class="col-12 mb-3">
@@ -140,8 +140,8 @@
     $(document).ready(function() {
 
         $('.btn-add').click(function() {
-            $('.modal-title').text('Tambah Vendor');
-            $('#jenis-form').attr('action', "{{ route('vendor.store') }}");
+            $('.modal-title').text('Tambah Penerbit');
+            $('#jenis-form').attr('action', "{{ route('penerbit.store') }}");
             $('#form-method').val('POST');
             $('#nama').val('');
             $('#submit-btn').text('Tambah');
@@ -152,18 +152,18 @@
             let kode = $(this).data('kode');
             let nama = $(this).data('nama');
             let alamat = $(this).data('alamat');
-            let no_hp = $(this).data('no_hp');
+            let no_telp = $(this).data('no_telp');
             let email = $(this).data('email');
 
-            $('.modal-title').text('Edit Vendor');
-            $('#jenis-form').attr('action', `/vendor/${id}`);
+            $('.modal-title').text('Edit penerbit');
+            $('#jenis-form').attr('action', `/penerbit/${id}`);
             $('#form-method').val('PUT');
             $('#submit-btn').text('Edit');
             $('#id').val(id);
             $('#kode').val(kode);
             $('#nama').val(nama);
             $('#alamat').val(alamat);
-            $('#no_hp').val(no_hp);
+            $('#no_telp').val(no_telp);
             $('#email').val(email);
         });
 

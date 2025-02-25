@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vendor', function (Blueprint $table) {
+        Schema::create('penerbit', function (Blueprint $table) {
             $table->id();
-            $table->string('nama', 50);
-            $table->string('email')->unique()->nullable();
-            $table->string('no_hp', 20)->nullable();
-            $table->text('alamat')->nullable();
+            $table->string('kode', 50)->unique();
+            $table->string('nama', 100);
+            $table->string('email', 100)->unique();
+            $table->text('alamat');
+            $table->string('no_telp', 20);
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vendor');
+        Schema::dropIfExists('penerbit');
     }
 };

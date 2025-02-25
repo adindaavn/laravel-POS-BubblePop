@@ -152,21 +152,27 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('vendor.index') }}" class="menu-link">
+                        <a href="{{ route('penerbit.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-component"></i>
-                            <div data-i18n="Vendor">Vendor</div>
+                            <div data-i18n="Penerbit">Penerbit</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{ route('buku.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-book"></i>
+                            <div data-i18n="Buku">Buku</div>
                         </a>
                     </li>
 
-                    <li class="menu-item">
+                    <!-- <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-box"></i>
-                            <div data-i18n="Katalog">Produk</div>
+                            <div data-i18n="Katalog">Katalog</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="pages-account-settings-account.html" class="menu-link">
-                                    <div data-i18n="Produk">Produk</div>
+                                <a href="{{ route('buku.index') }}" class="menu-link">
+                                    <div data-i18n="Buku">Buku</div>
                                 </a>
                             </li>
                             <li class="menu-item">
@@ -175,7 +181,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
                 </ul>
             </aside>
             <!-- / Menu -->
@@ -255,15 +261,6 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
-                                            <span class="d-flex align-items-center align-middle">
-                                                <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-                                                <span class="flex-grow-1 align-middle">Billing</span>
-                                                <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
                                         <div class="dropdown-divider"></div>
                                     </li>
                                     <li>
@@ -290,73 +287,37 @@
                             @yield('content')
                         </section>
                     </div>
-                    <!-- Footer -->
-                    <footer class="content-footer footer bg-footer-theme">
-                        <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                            <div class="mb-2 mb-md-0">
-                                ©
-                                <script>
-                                    document.write(new Date().getFullYear());
-                                </script>
-                                , made with ❤️ by
-                                <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">ThemeSelection</a>
-                            </div>
-                            <div>
-                                <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
-                                <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More Themes</a>
-
-                                <a
-                                    href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-                                    target="_blank"
-                                    class="footer-link me-4">Documentation</a>
-
-                                <a
-                                    href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-                                    target="_blank"
-                                    class="footer-link me-4">Support</a>
-                            </div>
-                        </div>
-                        @if ($errors->any())
-                        <div
-                            class="bs-toast toast toast-placement-ex m-2 bg-danger bottom-0 end-0"
-                            role="alert"
-                            aria-live="assertive"
-                            aria-atomic="true">
-                            <div class="toast-header">
-                                <i class="bx bx-bell me-2"></i>
-                                <div class="me-auto fw-semibold">Error!</div>
-                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                            </div>
-                            <div class="toast-body">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                        @endif
-                        @if (Session::has('success'))
-                        <div
-                            class="bs-toast toast toast-placement-ex m-2 bg-success bottom-0 end-0"
-                            role="alert"
-                            aria-live="assertive"
-                            aria-atomic="true">
-                            <div class="d-flex">
-                                <div class="toast-body">
-                                    <i class="bx bx-check-circle me-2"></i>
-                                    {{ Session::get('success') }}
-                                </div>
-                                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-                            </div>
-                        </div>
-                        @endif
-                    </footer>
-                    <!-- / Footer -->
 
                     <div class="content-backdrop fade"></div>
                 </div>
                 <!-- Content wrapper -->
+
+                @if (Session::has('success'))
+                <div class="bs-toast toast toast-placement-ex m-2 bg-success bottom-0 end-0" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <i class="bx bx-bell me-2"></i>
+                        <div class="me-auto fw-medium">Success!</div>
+                    </div>
+                    <div class="toast-body">
+                        <i class="bx bx-check-circle"></i>
+                        {{ Session::get('success') }}
+                    </div>
+                </div>
+                @endif
+
+                @if(session('error'))
+                <div class="bs-toast toast toast-placement-ex m-2 bg-danger bottom-0 end-0" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <i class="bx bx-bell me-2"></i>
+                        <div class="me-auto fw-medium">Error!</div>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        <i class="bx bx-check-circle"></i>
+                        {{ session('error') }}
+                    </div>
+                </div>
+                @endif
             </div>
             <!-- / Layout page -->
         </div>
@@ -394,11 +355,6 @@
             if ($toast.length) {
                 var toast = new bootstrap.Toast($toast[0]);
                 toast.show();
-
-                // Hilangkan toast otomatis setelah 5 detik
-                setTimeout(function() {
-                    toast.hide();
-                }, 5000);
             }
         });
     </script>
