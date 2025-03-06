@@ -163,6 +163,12 @@
                             <div data-i18n="Buku">Buku</div>
                         </a>
                     </li>
+                    <li class="menu-item">
+                        <a href="{{ route('member.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-people"></i>
+                            <div data-i18n="Member">Member</div>
+                        </a>
+                    </li>
 
                     <!-- <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
