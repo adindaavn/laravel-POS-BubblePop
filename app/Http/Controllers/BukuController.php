@@ -29,13 +29,13 @@ class BukuController extends Controller
             [
                 'judul'         => 'required|string',
                 'penulis'       => 'required|string',
-                'kategori_id'   => 'nullable|string',
-                'harga'         => 'nullable|string',
-                'stok'          => 'nullable|string',
-                'penerbit_id'   => 'nullable|string',
+                'kategori_id'   => 'nullable|integer',
+                'harga'         => 'nullable|numeric||min:0',
+                'stok'          => 'nullable|integer|min:0',
+                'penerbit_id'   => 'nullable|integer',
                 'isbn'          => 'required|string|max:20',
-                'tahun_terbit'  => 'nullable|string',
-                'jml_halaman'   => 'nullable|string'
+                'tahun_terbit'  => 'nullable|integer',
+                'jml_halaman'   => 'nullable|integer'
             ]
         );
         try {
@@ -65,13 +65,13 @@ class BukuController extends Controller
             [
                 'judul'         => 'required|string',
                 'penulis'       => 'required|string',
-                'kategori_id'   => 'nullable|string',
-                'harga'         => 'nullable|string',
-                'stok'          => 'nullable|string',
-                'penerbit_id'   => 'nullable|string',
-                'isbn'          => 'required|string|max:20',
-                'tahun_terbit'  => 'nullable|string',
-                'jml_halaman'   => 'nullable|string'
+                'kategori_id'   => 'nullable|integer',
+                'harga'         => 'nullable|numeric||min:0',
+                'stok'          => 'nullable|integer|min:0',
+                'penerbit_id'   => 'nullable|integer',
+                'isbn'          => 'required|string|min:0|max:20',
+                'tahun_terbit'  => 'nullable|integer',
+                'jml_halaman'   => 'nullable|integer'
             ]
         );
 

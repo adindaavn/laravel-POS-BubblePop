@@ -22,9 +22,9 @@ class MemberController extends Controller
         $validated = $request->validate(
             [
                 'nama' => 'required|string|max:100',
-                'alamat' => 'string',
-                'no_telp' => 'string|max:20',
-                'email' => 'string'
+                'alamat' => 'nullable|string',
+                'no_telp' => 'nullable|string|max:20',
+                'email' => 'nullable|email'
             ]
         );
         try {
@@ -51,9 +51,9 @@ class MemberController extends Controller
         $validated = $request->validate(
             [
                 'nama' => 'required|string|max:100',
-                'alamat' => 'string',
-                'no_telp' => 'string|max:20',
-                'email' => 'string'
+                'alamat' => 'nullable|string',
+                'no_telp' => 'nullable|string|max:20',
+                'email' => 'nullable|string'
             ]
         );
 
