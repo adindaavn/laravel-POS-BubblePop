@@ -153,7 +153,7 @@
                     </li>
                     <li class="menu-item">
                         <a href="{{ route('penerbit.index') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bxs-component"></i>
+                            <i class="menu-icon tf-icons bx bx-store-alt"></i>
                             <div data-i18n="Penerbit">Penerbit</div>
                         </a>
                     </li>
@@ -163,10 +163,20 @@
                             <div data-i18n="Buku">Buku</div>
                         </a>
                     </li>
+
+                    <li class="menu-header small text-uppercase">
+                        <span class="menu-header-text">Toko</span>
+                    </li>
                     <li class="menu-item">
                         <a href="{{ route('member.index') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-people"></i>
+                            <i class="menu-icon tf-icons bx bxs-user-badge"></i>
                             <div data-i18n="Member">Member</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{ route('voucher.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bxs-discount"></i>
+                            <div data-i18n="voucher">Voucher</div>
                         </a>
                     </li>
 

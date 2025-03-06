@@ -21,7 +21,7 @@ class VoucherController extends Controller
     function store(Request $request)
     {
         $validated = $request->validate([
-            'tipe' => 'required|in:fixed,percent',
+            'tipe' => 'required|string|in:fixed,percent',
             'nilai' => 'required|numeric|min:0',
             'min_belanja' => 'nullable|numeric|min:0',
             'max_diskon' => 'nullable|numeric|min:0',
@@ -30,6 +30,7 @@ class VoucherController extends Controller
             'is_active' => 'nullable|boolean',
             'stok' => 'nullable|integer|min:0'
         ]);
+
         try {
 
             Voucher::create($validated);
