@@ -21,6 +21,7 @@ return new class extends Migration
             $table->date('valid_dari')->nullable();
             $table->date('valid_sampai')->nullable();
             $table->boolean('is_active')->nullable();
+            $table->integer('stok')->nullable();
             $table->timestamps();
         });
     }
